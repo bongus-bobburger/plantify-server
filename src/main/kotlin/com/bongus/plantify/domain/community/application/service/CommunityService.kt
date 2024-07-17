@@ -29,7 +29,7 @@ class CommunityService (
         repository.save(
             mapper.toEntity(
                 Community(
-                    communityRequest, jwtUtils.getMember().id!!.value
+                    communityRequest, jwtUtils.getMember().name.value
                 )
             )
         )

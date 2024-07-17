@@ -13,9 +13,7 @@ class CommunityMapper {
             title = domain.title.value,
             description = domain.description.value,
             imageUrl = domain.imageUrl.value,
-            userId = domain.userId.value,
-            createdDate = domain.createdDate.value,
-            lastModifiedDate = domain.lastModifiedDate.value,
+            userName = domain.userName.value
         )
     }
 

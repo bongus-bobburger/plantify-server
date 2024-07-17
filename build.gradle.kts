@@ -51,6 +51,7 @@ dependencies {
 	implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.0.2")
 	compileOnly ("org.projectlombok:lombok")
 	annotationProcessor ("org.projectlombok:lombok")
+	implementation ("com.fasterxml.jackson.datatype:jackson-datatype-jsr310")
 
 }
 

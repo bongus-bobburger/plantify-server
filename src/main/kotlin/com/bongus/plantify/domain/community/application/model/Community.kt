@@ -10,21 +10,16 @@ data class Community (
     val title: CommunityTitle,
     val description: CommunityDescription,
     val imageUrl: CommunityImageUrl,
-    val userId: CommunityUserId,
-    val createdDate: CommunityCreatedDate,
-    val lastModifiedDate: CommunityLastModifiedDate
-
+    val userName: CommunityUserName
 ){
 
     /*TODO constructor*/
-    constructor(request: CreateCommunityRequest, userId: Long) : this (
+    constructor(request: CreateCommunityRequest, userName: String) : this (
         id = CommunityId(0),
         title = CommunityTitle(request.title),
         description = CommunityDescription(request.description),
         imageUrl = CommunityImageUrl(request.imageUrl),
-        userId = CommunityUserId(userId),
-        createdDate = CommunityCreatedDate(LocalDateTime.now()),
-        lastModifiedDate = CommunityLastModifiedDate(LocalDateTime.now())
+        userName = CommunityUserName(userName)
     )
 
 }

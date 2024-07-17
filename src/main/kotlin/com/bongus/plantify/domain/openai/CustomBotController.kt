@@ -27,7 +27,7 @@ class CustomBotController(private val template: RestTemplate) {
             throw IllegalArgumentException("Prompt and imageUrl must not be null")
         }
 
-        val request = ChatGPTRequest(model = model, prompt = "해당 식물에 대해 설명해줘", imageUrl = imageUrl)
+        val request = ChatGPTRequest(model = model, prompt = "내가 보낸 이미지는 과일이나 일반 식물 중 하나야, 어떤 식물 또는 과일인지 잘 보고 설명해줘", imageUrl = imageUrl)
         val chatGPTResponse = template.postForObject(
             apiURL, request,
             ChatGPTResponse::class.java
