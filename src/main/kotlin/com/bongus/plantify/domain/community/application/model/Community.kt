@@ -9,6 +9,7 @@ data class Community (
     val id: CommunityId?,
     val title: CommunityTitle,
     val description: CommunityDescription,
+    val imageUrl: CommunityImageUrl,
     val userId: CommunityUserId,
     val createdDate: CommunityCreatedDate,
     val lastModifiedDate: CommunityLastModifiedDate
@@ -20,6 +21,7 @@ data class Community (
         id = CommunityId(0),
         title = CommunityTitle(request.title),
         description = CommunityDescription(request.description),
+        imageUrl = CommunityImageUrl(request.imageUrl),
         userId = CommunityUserId(userId),
         createdDate = CommunityCreatedDate(LocalDateTime.now()),
         lastModifiedDate = CommunityLastModifiedDate(LocalDateTime.now())

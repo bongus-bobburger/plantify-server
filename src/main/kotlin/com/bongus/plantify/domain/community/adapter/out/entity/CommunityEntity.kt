@@ -18,6 +18,9 @@ data class CommunityEntity (
     @Column(nullable = false)
     var description: String = "",
 
+    @Column
+    var imageUrl: String = "",
+
     @Column(nullable = false)
     var userId : Long = 0,
 

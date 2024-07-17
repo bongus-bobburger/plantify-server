@@ -7,22 +7,12 @@ import org.springframework.stereotype.Component
 @Component
 class CommunityMapper {
 
-    fun toDomain(entity: Community): Community {
-        return Community(
-            id = entity.id,
-            title = entity.title,
-            description = entity.description,
-            userId = entity.userId,
-            createdDate = entity.createdDate,
-            lastModifiedDate = entity.lastModifiedDate,
-        )
-    }
-
     fun toEntity(domain: Community): CommunityEntity {
         return CommunityEntity (
             id = domain.id?.value ?: 0,
             title = domain.title.value,
             description = domain.description.value,
+            imageUrl = domain.imageUrl.value,
             userId = domain.userId.value,
             createdDate = domain.createdDate.value,
             lastModifiedDate = domain.lastModifiedDate.value,

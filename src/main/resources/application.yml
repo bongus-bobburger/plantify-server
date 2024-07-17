@@ -30,17 +30,17 @@ application:
     expiration: 43200000
     refreshExpiration: 604800000   # 7일
 
-#cloud:
-#  aws:
-#    s3:
-#      bucket: lift-s3-bucket
-#    region:
-#      static: ap-northeast-2
-#    stack:
-#      auto: false
-#    credentials:
-#      accessKey: AKIA4J3VX2R6UP3KFZPV
-#      secretKey: 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
+cloud:
+  aws:
+    s3:
+      bucket: plantify-bucket
+    region:
+      static: ap-northeast-2
+    stack:
+      auto: false
+    credentials:
+      accessKey: AKIAQ3EGSRCIGBUKI6FO
+      secretKey: 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
 
 springdoc:
   api-docs:
