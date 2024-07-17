@@ -1,5 +1,5 @@
 plugins {
-	id("org.springframework.boot") version "3.3.1"
+	id("org.springframework.boot") version "3.2.4"
 	id("io.spring.dependency-management") version "1.1.5"
 	kotlin("plugin.jpa") version "1.9.24"
 	kotlin("jvm") version "1.9.24"
@@ -48,6 +48,10 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-data-redis")
 	implementation("com.querydsl:querydsl-jpa:5.0.0:jakarta")
 	kapt("com.querydsl:querydsl-apt:5.0.0:jakarta")
+	implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.0.2")
+	compileOnly ("org.projectlombok:lombok")
+	annotationProcessor ("org.projectlombok:lombok")
+
 }
 
 kotlin {

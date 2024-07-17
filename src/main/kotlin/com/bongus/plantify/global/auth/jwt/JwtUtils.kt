@@ -1,5 +1,5 @@
 package com.bongus.plantify.global.auth.jwt
-import com.bongus.plantify.domain.member.model.Member
+import com.bongus.plantify.domain.member.application.model.Member
 import com.bongus.plantify.global.auth.jwt.exception.type.JwtErrorType
 import io.jsonwebtoken.ExpiredJwtException
 import io.jsonwebtoken.Jwts

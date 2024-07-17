@@ -21,19 +21,9 @@ class JwtAuthenticationFilter(
         filterChain: FilterChain
     ) {
         val token: String? = request.getHeader("Authorization")
-        val path: String = request.servletPath
-
-        if (path.startsWith("/member/") ||
-            path.startsWith("/oauth2/") ||
-            path.startsWith("/email/") ||
-            path.startsWith("/stomp/")
-        ) {
-            filterChain.doFilter(request, response)
-            return
-        }
 
         if (token.isNullOrEmpty() || !token.startsWith("Bearer ")) {
-            setErrorResponse(response, JwtErrorCode.JWT_EMPTY_EXCEPTION)
+            doFilter(request, response, filterChain)
         } else {
             when (jwtUtils.checkTokenInfo(jwtUtils.getToken(token))) {
                 JwtErrorType.OK -> {

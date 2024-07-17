@@ -3,7 +3,7 @@ package com.bongus.plantify.domain.member.application.service
 import com.bongus.plantify.domain.member.adapter.`in`.dto.req.LoginMemberRequest
 import com.bongus.plantify.domain.member.application.port.`in`.LoginMemberUseCase
 import com.bongus.plantify.domain.member.application.port.out.LoadMemberPort
-import com.bongus.plantify.domain.member.model.Member
+import com.bongus.plantify.domain.member.application.model.Member
 import com.bongus.plantify.global.auth.exception.CustomException
 import com.bongus.plantify.global.auth.jwt.JwtInfo
 import com.bongus.plantify.global.auth.jwt.JwtUtils

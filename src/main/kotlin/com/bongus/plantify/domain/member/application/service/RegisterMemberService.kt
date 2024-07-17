@@ -5,7 +5,7 @@ import com.bongus.plantify.domain.member.application.exception.MemberErrorCode
 import com.bongus.plantify.domain.member.application.port.`in`.RegisterMemberUseCase
 import com.bongus.plantify.domain.member.application.port.out.ExistMemberPort
 import com.bongus.plantify.domain.member.application.port.out.SaveMemberPort
-import com.bongus.plantify.domain.member.model.Member
+import com.bongus.plantify.domain.member.application.model.Member
 import com.bongus.plantify.global.auth.exception.CustomException
 import com.bongus.plantify.global.auth.jwt.JwtInfo
 import com.bongus.plantify.global.auth.jwt.JwtUtils

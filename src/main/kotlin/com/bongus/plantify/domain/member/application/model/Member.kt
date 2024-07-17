@@ -1,4 +1,4 @@
-package com.bongus.plantify.domain.member.model
+package com.bongus.plantify.domain.member.application.model
 
 import com.bongus.plantify.domain.member.adapter.`in`.dto.req.EditMemberRequest
 import com.bongus.plantify.domain.member.adapter.`in`.dto.req.RegisterMemberRequest
@@ -13,9 +13,6 @@ data class Member (
     val password: MemberPassword,
     var birth: MemberBirth,
     val role: MemberRole,
-    val loginId: MemberLoginId,
-    val provider: MemberProvider,
-    val providerId: MemberProviderId,
     var deleted: MemberDeleted
 
 ) {
@@ -28,9 +25,6 @@ data class Member (
         password = MemberPassword(encrypted),
         birth =  MemberBirth(""),
         role = MemberRole("ROLE_USER"),
-        loginId = MemberLoginId(""),
-        provider = MemberProvider(""),
-        providerId = MemberProviderId(""),
         deleted = MemberDeleted(false)
     )
 

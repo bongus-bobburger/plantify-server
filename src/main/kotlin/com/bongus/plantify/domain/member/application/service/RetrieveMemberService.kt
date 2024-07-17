@@ -3,7 +3,7 @@ package com.bongus.plantify.domain.member.application.service
 import com.bongus.plantify.domain.member.adapter.`in`.dto.res.RetrieveMemberResponse
 import com.bongus.plantify.domain.member.application.port.`in`.RetrieveMemberUseCase
 import com.bongus.plantify.domain.member.application.port.out.LoadMemberPort
-import com.bongus.plantify.domain.member.model.Member
+import com.bongus.plantify.domain.member.application.model.Member
 import com.bongus.plantify.global.response.BaseResponse
 import org.springframework.stereotype.Service
 

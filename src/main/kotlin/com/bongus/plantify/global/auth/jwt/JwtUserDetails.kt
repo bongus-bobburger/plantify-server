@@ -1,7 +1,7 @@
 package com.bongus.plantify.global.auth.jwt
 
 import com.bongus.plantify.domain.member.application.model.value.MemberId
-import com.bongus.plantify.domain.member.model.Member
+import com.bongus.plantify.domain.member.application.model.Member
 import org.springframework.security.core.GrantedAuthority
 import org.springframework.security.core.authority.SimpleGrantedAuthority
 import org.springframework.security.core.userdetails.UserDetails

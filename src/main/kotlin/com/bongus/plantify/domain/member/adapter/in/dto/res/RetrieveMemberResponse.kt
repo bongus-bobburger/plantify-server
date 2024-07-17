@@ -1,6 +1,6 @@
 package com.bongus.plantify.domain.member.adapter.`in`.dto.res
 
-import com.bongus.plantify.domain.member.model.Member
+import com.bongus.plantify.domain.member.application.model.Member
 
 data class RetrieveMemberResponse (
 
