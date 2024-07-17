@@ -16,7 +16,6 @@ import org.springframework.web.cors.CorsConfiguration
 import org.springframework.web.cors.CorsConfigurationSource
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource
 
-
 @Configuration
 @EnableWebSecurity
 class SecurityConfig (
@@ -51,7 +50,7 @@ class SecurityConfig (
                     .requestMatchers("/member/**").permitAll()
                     .requestMatchers("/api/**").permitAll()
                     .requestMatchers("/bot/chat").permitAll()
-                    .requestMatchers("/member/edit", "/member/myInfo").hasRole("USER")
+                    .requestMatchers("/community/**").hasAnyRole("USER", "ADMIN")
                     .anyRequest().authenticated()
             }
 

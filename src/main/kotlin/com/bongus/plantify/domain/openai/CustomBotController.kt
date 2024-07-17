@@ -11,7 +11,8 @@ import org.springframework.web.client.RestTemplate
 
 @RestController
 @RequestMapping("/bot")
-class CustomBotController (private val template: RestTemplate){
+class CustomBotController(private val template: RestTemplate) {
+
     @Value("\${openai.model}")
     private lateinit var model: String
 
@@ -19,12 +20,20 @@ class CustomBotController (private val template: RestTemplate){
     private lateinit var apiURL: String
 
     @GetMapping("/chat")
-    fun chat(@RequestParam(name = "prompt") prompt: String?): String {
-        val request = ChatGPTRequest(model = model, prompt = prompt!!)
+    fun chat(
+        @RequestParam(name = "imageUrl") imageUrl: String?
+    ): String {
+        if ( imageUrl == null) {
+            throw IllegalArgumentException("Prompt and imageUrl must not be null")
+        }
+
+        val request = ChatGPTRequest(model = model, prompt = "해당 식물에 대해 설명해줘", imageUrl = imageUrl)
         val chatGPTResponse = template.postForObject(
             apiURL, request,
             ChatGPTResponse::class.java
         )
-        return chatGPTResponse!!.choices?.get(0)?.message?.content!!
+
+        return chatGPTResponse?.choices?.get(0)?.message?.content
+            ?: throw IllegalStateException("No response from AI")
     }
 }

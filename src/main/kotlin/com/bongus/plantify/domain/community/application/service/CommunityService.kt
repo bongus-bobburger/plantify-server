@@ -10,13 +10,14 @@ import com.bongus.plantify.global.response.BaseResponse
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 
-@Transactional(readOnly = true)
+@Transactional
 @Service
 class CommunityService (
     private val repository: CommunityRepository,
     private val mapper: CommunityMapper,
     private val jwtUtils: JwtUtils
 ){
+    @Transactional(readOnly = true)
     fun findAll(): BaseResponse<List<CommunityEntity>>{
         return BaseResponse(
             message = "조회 성공 !!",

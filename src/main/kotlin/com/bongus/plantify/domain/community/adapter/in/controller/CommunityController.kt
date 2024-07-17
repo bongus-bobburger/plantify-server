@@ -6,10 +6,7 @@ import com.bongus.plantify.domain.community.application.service.CommunityService
 import com.bongus.plantify.global.infra.aws.s3.service.S3
 import com.bongus.plantify.global.infra.aws.s3.type.FileType
 import com.bongus.plantify.global.response.BaseResponse
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.PostMapping
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RestController
+import org.springframework.web.bind.annotation.*
 import org.springframework.web.multipart.MultipartFile
 
 @RestController
@@ -24,7 +21,7 @@ class CommunityController (
     }
 
     @PostMapping
-    fun registerCommunity(request: CreateCommunityRequest): BaseResponse<Unit> {
+    fun registerCommunity(@RequestBody request: CreateCommunityRequest): BaseResponse<Unit> {
         return communityService.register(request)
     }
 
