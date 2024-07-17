@@ -22,7 +22,7 @@ class PriceController (
     }
 
     @PostMapping
-    fun register(@RequestBody request: PriceRequest):BaseResponse<Unit> {
+    fun register(@RequestParam request: PriceRequest):BaseResponse<Unit> {
         return priceService.register(request)
     }
 
