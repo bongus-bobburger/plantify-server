@@ -52,6 +52,7 @@ dependencies {
 	compileOnly ("org.projectlombok:lombok")
 	annotationProcessor ("org.projectlombok:lombok")
 	implementation ("com.fasterxml.jackson.datatype:jackson-datatype-jsr310")
+	implementation("org.jsoup:jsoup:1.14.3")
 
 }
 
