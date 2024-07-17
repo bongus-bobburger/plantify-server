@@ -1,0 +1,61 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/plantify?
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 12345678
+
+  openai:
+    api:
+      key: sk-None-4XC9eJXsqWBQywPJtJvAT3BlbkFJrBcSvG1OUUK10BcN3Af7
+
+  jpa:
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+        format_sql: true
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+  redis:
+    host: localhost
+    port: 6379
+
+application:
+  jwt:
+    secretKey: 25432A462D4A614E645267556A586E3272357538782F413F4428472B4B625065
+    expiration: 43200000
+    refreshExpiration: 604800000   # 7일
+
+#cloud:
+#  aws:
+#    s3:
+#      bucket: lift-s3-bucket
+#    region:
+#      static: ap-northeast-2
+#    stack:
+#      auto: false
+#    credentials:
+#      accessKey: AKIA4J3VX2R6UP3KFZPV
+#      secretKey: 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
+
+#springdoc:
+#  api-docs:
+#    enabled: true
+#    version: openapi_3_0 #사용하는 버전을 명시
+#    path: /v3/api-docs #api 문서 확인 경로, localhost:8080/v3/api-docs 로 접근
+#
+#  default-consumes-media-type: application/json #기본으로 설정되는 미디어타입 지정
+#  auto-tag-classes: true #오토 태그 기능 활성화
+#  groups:
+#    enabled: false #api 그룹 기능, default는 true 이나 당장 사용하지 않기에 false 로 지정
+#
+#  swagger-ui:
+#    operationsSorter: method #method 기준으로 정렬, 그외 alpha 로 정렬 가능
+#    path: /swagger-ui.html
+
+server:
+  port: 8080
