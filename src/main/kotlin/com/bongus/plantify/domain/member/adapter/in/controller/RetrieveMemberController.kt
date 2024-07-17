@@ -14,8 +14,8 @@ class RetrieveMemberController (
 ) {
 
     @GetMapping("/myInfo")
-    fun getMyInfo(memberId: Long): BaseResponse<RetrieveMemberResponse> {
-        return retrieveMemberUseCase.retrieveMember(memberId)
+    fun getMyInfo(): BaseResponse<RetrieveMemberResponse> {
+        return retrieveMemberUseCase.retrieveMember()
     }
 
 }

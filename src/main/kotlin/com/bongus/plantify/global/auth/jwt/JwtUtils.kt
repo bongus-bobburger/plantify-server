@@ -7,6 +7,7 @@ import io.jsonwebtoken.MalformedJwtException
 import io.jsonwebtoken.UnsupportedJwtException
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken
 import org.springframework.security.core.Authentication
+import org.springframework.security.core.context.SecurityContextHolder
 import org.springframework.security.core.userdetails.UserDetails
 import org.springframework.security.core.userdetails.UserDetailsService
 import org.springframework.stereotype.Component
@@ -32,6 +33,14 @@ class JwtUtils(
             "email",
             String::class.java
         )
+    }
+
+    fun getMember(): Member {
+     return (SecurityContextHolder
+                .getContext()
+                .authentication
+                .principal as JwtUserDetails)
+                .member
     }
 
     fun checkTokenInfo(token: String): JwtErrorType {

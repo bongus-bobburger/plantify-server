@@ -1,27 +1,28 @@
 package com.bongus.plantify.domain.community.application.model
 
 import com.bongus.plantify.domain.community.adapter.`in`.dto.req.CreateCommunityRequest
-import java.util.*
+import com.bongus.plantify.domain.community.application.model.value.*
+import java.time.LocalDateTime
 
 data class Community (
 
-    val id: Long?,
-    var title: String?,
-    var description: String?,
-    val userId: Long?,
-    val createdDate: Date?,
-    var lastModifiedDate: Date?
+    val id: CommunityId?,
+    val title: CommunityTitle,
+    val description: CommunityDescription,
+    val userId: CommunityUserId,
+    val createdDate: CommunityCreatedDate,
+    val lastModifiedDate: CommunityLastModifiedDate
 
 ){
 
     /*TODO constructor*/
-    constructor(request: CreateCommunityRequest, userId: Long?) : this (
-        id = null,
-        title = request.title.toString(),
-        description = request.description.toString(),
-        userId = userId,
-        createdDate = Date(),
-        lastModifiedDate = Date()
+    constructor(request: CreateCommunityRequest, userId: Long) : this (
+        id = CommunityId(0),
+        title = CommunityTitle(request.title),
+        description = CommunityDescription(request.description),
+        userId = CommunityUserId(userId),
+        createdDate = CommunityCreatedDate(LocalDateTime.now()),
+        lastModifiedDate = CommunityLastModifiedDate(LocalDateTime.now())
     )
 
 }

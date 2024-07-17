@@ -5,6 +5,6 @@ import com.bongus.plantify.global.response.BaseResponse
 
 interface RetrieveMemberUseCase {
 
-    fun retrieveMember(memberId: Long): BaseResponse<RetrieveMemberResponse>
+    fun retrieveMember(): BaseResponse<RetrieveMemberResponse>
 
 }
