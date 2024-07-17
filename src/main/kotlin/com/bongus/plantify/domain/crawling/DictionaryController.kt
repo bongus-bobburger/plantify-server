@@ -1,7 +1,6 @@
-package com.bongus.plantify.domain.openai
+package com.bongus.plantify.domain.crawling
 
-import com.bongus.plantify.domain.crawling.WebCrawlerService
-import com.bongus.plantify.domain.openai.dto.request.ChatGPTRequest
+import com.bongus.plantify.domain.openai.dto.request.GPTRequest
 import com.bongus.plantify.domain.openai.dto.response.ChatGPTResponse
 import com.bongus.plantify.global.response.BaseResponse
 import org.springframework.beans.factory.annotation.Value
@@ -12,36 +11,40 @@ import org.springframework.web.bind.annotation.RestController
 import org.springframework.web.client.RestTemplate
 
 @RestController
-@RequestMapping("/bot")
-class CustomBotController(
+@RequestMapping("/dictionaries")
+class DictionaryController (
     private val template: RestTemplate,
-    private val webCrawlerService: WebCrawlerService) {
-
+    private val webCrawlerService: WebCrawlerService,
+){
     @Value("\${openai.model}")
     private lateinit var model: String
 
     @Value("\${openai.api.url}")
     private lateinit var apiURL: String
 
-    @GetMapping("/chat")
-    fun chat(
-        @RequestParam(name = "imageUrl") imageUrl: String?
-    ): BaseResponse<String> {
-        if ( imageUrl == null) {
-            throw IllegalArgumentException("Prompt and imageUrl must not be null")
+    @GetMapping
+    fun crawler(@RequestParam keyword: String){
+        webCrawlerService.crawlWebsite(keyword);
+    }
+
+    @GetMapping("/gpt")
+    fun chat(@RequestParam(name = "prompt") prompt: String?
+        ): BaseResponse<String> {
+        if (prompt == null) {
+            throw IllegalArgumentException("Prompt must not be null")
         }
 
-        val request = ChatGPTRequest(model = model, prompt = "내가 보낸 이미지는 과일이나 일반 식물 중 하나야, 어떤 식물 또는 과일인지만 말해줘. 설명빼고 단어만", imageUrl = imageUrl)
+        val request = GPTRequest(model = model, prompt = prompt)
         val chatGPTResponse = template.postForObject(
             apiURL, request,
             ChatGPTResponse::class.java
         )
         val keyWord: String = chatGPTResponse?.choices?.get(0)?.message?.content
             ?: throw IllegalStateException("No response from AI")
-
         return BaseResponse(
-            message = "성공~",
-            data = webCrawlerService.crawlWebsite(keyWord)
+            message = "답변이 도착했습니다",
+            data = keyWord
         )
     }
+
 }
