@@ -1,5 +1,6 @@
 package com.bongus.plantify.domain.price.application.model
 
+import com.bongus.plantify.domain.price.adaptor.`in`.dto.PriceRequest
 import com.bongus.plantify.domain.price.application.model.value.*
 
 data class Price(
@@ -9,11 +10,11 @@ data class Price(
     val pricePrice: PricePrice,
     val imageUrl: PriceImageUrl
 ){
-    constructor(price: Price, userName: String) : this(
+    constructor(price: PriceRequest, userName: String) : this(
         id = PriceId(0),
-        priceName = PriceName(price.priceName.value),
-        description = PriceDescription(price.description.value),
-        pricePrice = PricePrice(price.pricePrice.value),
-        imageUrl = PriceImageUrl(price.imageUrl.value)
+        priceName = PriceName(price.name),
+        description = PriceDescription(price.description),
+        pricePrice = PricePrice(price.price),
+        imageUrl = PriceImageUrl(price.imagePath)
     )
 }
