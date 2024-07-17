@@ -9,7 +9,7 @@ data class PriceRequest(
     @NotBlank
     val description: String,
     @NotNull
-    val price: Int,
+    val price: String,
     @NotNull
     val imagePath: String
 )

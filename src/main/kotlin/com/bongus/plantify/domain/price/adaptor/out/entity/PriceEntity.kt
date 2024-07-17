@@ -15,7 +15,7 @@ data class PriceEntity(
     var description: String,
 
     @Column(nullable = false)
-    var price: Int,
+    var price: String,
 
     var imageUrl: String? = null
 )
