@@ -5,11 +5,11 @@ import jakarta.validation.constraints.NotNull
 
 data class PriceRequest(
     @NotBlank
-    val name: String,
+    val name: String = "",
     @NotBlank
-    val description: String,
+    val description: String = "",
     @NotNull
-    val price: String,
+    val price: String = "",
     @NotNull
-    val imagePath: String
+    val imagePath: String = ""
 )
