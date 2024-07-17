@@ -9,9 +9,7 @@ data class Member (
     val id: MemberId?,
     var name: MemberName,
     val email: MemberEmail,
-    var picture: MemberPicture,
     val password: MemberPassword,
-    var birth: MemberBirth,
     val role: MemberRole,
     var deleted: MemberDeleted
 
@@ -21,17 +19,13 @@ data class Member (
         id = MemberId(0),
         name = MemberName(dto.name),
         email = MemberEmail(dto.email),
-        picture = MemberPicture(""),
         password = MemberPassword(encrypted),
-        birth =  MemberBirth(""),
         role = MemberRole("ROLE_USER"),
         deleted = MemberDeleted(false)
     )
 
     fun editMember (dto: EditMemberRequest) {
-        this.picture = MemberPicture(dto.picture)
         this.name = MemberName(dto.name)
-        this.birth = MemberBirth(dto.birth)
     }
 
 }

@@ -16,13 +16,7 @@ data class MemberEntity (
     var email: String = "",
 
     @Column(nullable = false)
-    var picture: String = "",
-
-    @Column(nullable = false)
     var password: String = "",
-
-    @Column(nullable = false)
-    var birth: String = "",
 
     @Column(nullable = false)
     var role: String = "ROLE_USER",
