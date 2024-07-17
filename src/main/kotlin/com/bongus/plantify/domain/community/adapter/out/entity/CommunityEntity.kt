@@ -3,28 +3,28 @@ package com.bongus.plantify.domain.community.adapter.out.entity
 import jakarta.persistence.*
 import org.springframework.data.annotation.CreatedDate
 import org.springframework.data.annotation.LastModifiedDate
-import java.util.*
+import java.time.LocalDateTime
 
 @Entity
-class CommunityEntity {
+data class CommunityEntity (
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    var id: Long? = null
+    var id: Long? = null,
 
     @Column(nullable = false)
-    var title: String? = null
+    var title: String = "",
 
     @Column(nullable = false)
-    var description: String? = null
+    var description: String = "",
 
     @Column(nullable = false)
-    var userId : Long? = null
+    var userId : Long = 0,
 
     @CreatedDate
-    var createdDate: Date? = null
+    var createdDate: LocalDateTime? = null,
 
     @LastModifiedDate
-    var modifiedDate: Date? = null
+    var lastModifiedDate: LocalDateTime? = null
 
-}
+)

@@ -12,7 +12,6 @@ class CustomExceptionHandler {
     fun handleCustomException(customException: CustomException): ResponseEntity<Any> {
         val response = BaseResponse<Unit>(
             status = customException.customErrorCode.status.value(),
-            state = customException.customErrorCode.state,
             success = false,
             message = customException.customErrorCode.message,
         )
